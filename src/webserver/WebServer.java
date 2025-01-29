@@ -38,28 +38,30 @@ public class WebServer {
                     System.out.println(request);
                     String[] firstLine = request.toString().split("\r\n")[0].split(" ");
                     switch (firstLine[1]) {
-                        case "/favicon.ico":
+                        case "/image":
                             FileInputStream image = new FileInputStream("C:\\Users\\LAPTOP SPIRIT\\Documents\\Learning\\Java\\WebServer\\src\\res\\hitler.jfif");
                             out.write(("HTTP/1.1 200 OK\r\n").getBytes());
                             out.write(("\r\n").getBytes());
                             out.write(image.readAllBytes());
                             out.flush();
                             break;
-                        case "Hello":
+                        case "/Hello":
                             out.write(("HTTP/1.1 200 OK\r\n").getBytes());
                             out.write(("\r\n").getBytes());
                             out.write(("Hello World").getBytes());
                             out.flush();
-                        case "abdo":
+                        case "/abdo":
                             out.write(("HTTP/1.1 200 OK\r\n").getBytes());
                             out.write(("\r\n").getBytes());
                             out.write(("Hello abdo").getBytes());
                             out.flush();
-                        default:
+                        case "/???":
                             out.write(("HTTP/1.1 200 OK\r\n").getBytes());
                             out.write(("\r\n").getBytes());
-                            out.write(("Not found").getBytes());
+                            out.write(("What are you looking for?").getBytes());
                             out.flush();
+                        default:
+                            System.out.println("hehheehe");
                     }
                         // Just send back a simple "Hello world"
                         
